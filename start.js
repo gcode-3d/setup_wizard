@@ -1,15 +1,27 @@
-const Bundler = require("parcel");
+const Parcel = require("@parcel/core").default;
+const createWorkerFarm = require("@parcel/core").createWorkerFarm;
 const path = require("path");
 module.exports = async () => {
-  const entry = path.join(__dirname, "./index.html");
+  const distDir = path.join(__dirname, "./dist");
   const options = {
-    minifiy: true,
+    entries: path.join(__dirname, "./index.html"),
+    defaultConfig: require.resolve("@parcel/config-default"),
+    defaultTargetOptions: {
+      shouldOptimize: true,
+      engines: {
+        browsers: ["last 1 Chrome version"],
+        node: "14",
+      },
+      distDir,
+    },
+    shouldPatchConsole: false,
     watch: false,
-    detailedReport: false,
-    logLevel: 1,
+    mode: "production",
+    detailedReport: { assetsPerBundle: 0 },
+    logLevel: "error",
   };
-  const bundler = new Bundler(entry, options);
+  const bundler = new Parcel(options);
 
-  await bundler.bundle();
-  return bundler.options.outDir;
+  await bundler.run();
+  return distDir;
 };
