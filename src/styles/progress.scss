@@ -1,0 +1,62 @@
+$background: #575757;
+
+.ProgressContainer {
+  height: 10em;
+  background-color: #373333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.ProgressContainer > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1024px;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ProgressCircle {
+  max-height: 6em;
+  min-height: 3em;
+  height: 100%;
+  max-width: 6em;
+  min-width: 3em;
+  width: 100%;
+  text-align: center;
+}
+.ProgressCircle .circle {
+  max-height: 5em;
+  min-height: 2em;
+  height: 80%;
+  background-color: $background;
+  max-width: 5em;
+  min-width: 2em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.4em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.ProgressCircle.completed .circle {
+  border: 3px solid lime;
+}
+.ProgressCircle.current .circle {
+  border: 3px solid #007acc;
+}
+.ProgressCircle.error .circle {
+  border: 3px solid #f14668;
+}
+
+.ProgressCircle h5 {
+  font-weight: normal;
+  margin: 0;
+}

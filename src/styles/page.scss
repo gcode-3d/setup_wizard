@@ -1,0 +1,18 @@
+.page {
+  max-width: 1024px;
+  width: 100%;
+  height: calc(100vh - 10em);
+  margin: auto;
+  padding: 1.5em;
+  margin-top: 10em;
+  overflow-y: auto;
+}
+
+input.input,
+.page .select select {
+  background: #373333;
+}
+
+.field {
+  margin-top: 2em;
+}

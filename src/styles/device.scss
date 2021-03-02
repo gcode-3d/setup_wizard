@@ -1,0 +1,39 @@
+.deviceContainer.columns:not(:last-child) {
+  margin-bottom: 4em;
+}
+
+.deviceContainer ~ .button {
+  margin-bottom: 2em;
+}
+
+.deviceBox {
+  display: block;
+  margin-top: 3em;
+  background-color: #373333;
+  border-radius: 0.25em;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.09), 0 5px 20px 0 rgba(0, 0, 0, 0.05);
+}
+.deviceBox button {
+  margin-top: 1.4em;
+  display: block;
+}
+
+.deviceBox .icon {
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+  background-color: #595959;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 1em auto;
+}
+
+@media screen and (max-width: 768px) {
+  .deviceBox.column.is-full-mobile {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+}
