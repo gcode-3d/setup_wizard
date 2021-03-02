@@ -5,6 +5,7 @@ module.exports = async () => {
   const options = {
     entries: path.join(__dirname, "./index.html"),
     defaultConfig: require.resolve("@parcel/config-default"),
+    shouldAutoInstall: true,
     defaultTargetOptions: {
       shouldOptimize: true,
       engines: {
