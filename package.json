@@ -2,6 +2,7 @@
   "name": "setup_wizard",
   "version": "0.1.0",
   "description": "",
+  "main": "start.js",
   "scripts": {
     "start": "parcel index.html -p 80",
     "build": "parcel build index.html"

@@ -1,5 +1,4 @@
 const Parcel = require("@parcel/core").default;
-const createWorkerFarm = require("@parcel/core").createWorkerFarm;
 const path = require("path");
 module.exports = async () => {
   const distDir = path.join(__dirname, "./dist");
