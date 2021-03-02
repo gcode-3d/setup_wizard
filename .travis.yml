@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - node
+dist: xenial
+os: linux
+script:
+  - npm run build
+before_deploy:
+  - git config --local user.name "Tobias Feld"
+  - git config --local user.email "tobias.feld@hotmail.com"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
+  - zip -r dist.zip dist
+deploy:
+  provider: releases
+  token: "$GHTOKEN"
+  file: "./dist.zip"
+  prerelease: true
+  cleanup: false
+  skip_cleanup: true
