@@ -46,7 +46,7 @@ export default function PrinterSelectPage(props) {
   } else {
     return (
       <Page>
-        <div className="columns deviceContainer">
+        <div className="columns deviceContainer is-multiline">
           {devices.map((device) => (
             <Device key={device.path} device={device} cb={props.cb} />
           ))}
