@@ -3,7 +3,7 @@ import WelcomePage from "./components/pages/welcome";
 import PrinterSelectPage from "./components/pages/printerSelect";
 import ProgressContainer from "./components/progressContainer";
 import "./styles/index.scss";
-import PrintArea from "./components/pages/printArea";
+import PrintConfigPage from "./components/pages/printConfig";
 import SecurityPage from "./components/pages/security";
 import FinishPage from "./components/pages/finish";
 
@@ -22,15 +22,17 @@ export default () => {
       page = <PrinterSelectPage cb={nextStep} />;
       break;
     case 2:
-      page = <PrintArea cb={nextStep} />;
+      page = <PrintConfigPage cb={nextStep} />;
       break;
     case 3:
       page = <SecurityPage cb={nextStep} />;
       break;
     case 4:
+    case 5:
       page = (
         <FinishPage
           data={setupData}
+          cb={nextStep}
           reportError={() => {
             setFinishError(true);
           }}
@@ -46,7 +48,7 @@ export default () => {
     </>
   );
   function nextStep(data) {
-    setCurrent(current == 4 ? 4 : current + 1);
+    setCurrent(current == 5 ? 5 : current + 1);
     if (data && !data["dispatchConfig"]) {
       setupData = { ...setupData, ...data };
     }

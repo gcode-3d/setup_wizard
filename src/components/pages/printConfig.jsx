@@ -8,8 +8,30 @@ export default function PrintArea(props) {
   const [origin, setOrigin] = useState("lower-left");
   const [heatedBed, setHeatedBed] = useState(false);
   const [heatedChamber, setHeatedChamber] = useState(false);
+  const [printerName, setPrinterNameValue] = useState("");
   return (
     <Page>
+      <h1 className="title">Set printer name</h1>
+      <h1 className="subtitle">Make your printer easy to recognise</h1>
+      <div className="columns">
+        <div className="column is-half">
+          <div className="field">
+            <label className="label">Printer name </label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                placeholder="Printer"
+                onChange={(e) => {
+                  setPrinterNameValue(e.currentTarget.value.trim());
+                }}
+                value={printerName}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h1 className="title">Temperature</h1>
       <h1 className="subtitle">Temperature related settings </h1>
       <div className="columns">
@@ -125,6 +147,9 @@ export default function PrintArea(props) {
     if (xValue == 0 || yValue == 0 || zValue == 0) {
       return;
     }
+    if (printerName == "") {
+      return;
+    }
     props.cb({
       printInfo: {
         xValue: parseInt(xValue),
@@ -133,6 +158,7 @@ export default function PrintArea(props) {
         origin,
         heatedBed,
         heatedChamber,
+        printerName,
       },
     });
   }

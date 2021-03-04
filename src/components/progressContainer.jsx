@@ -5,8 +5,8 @@ import {
   faDoorOpen,
   faFlag,
   faPrint,
-  faRulerHorizontal,
   faLock,
+  faWrench,
 } from "@fortawesome/free-solid-svg-icons";
 export default function ProgressContainer(props) {
   console.log(props);
@@ -26,8 +26,8 @@ export default function ProgressContainer(props) {
           current={props.current == 1}
         />
         <ProgressCircle
-          name="Print area"
-          icon={faRulerHorizontal}
+          name="Print Config"
+          icon={faWrench}
           completed={props.current > 2}
           current={props.current == 2}
         />
@@ -43,6 +43,7 @@ export default function ProgressContainer(props) {
           completed={false}
           error={props.finishError}
           current={props.current == 4}
+          completed={props.current > 4}
         />
       </div>
     </div>

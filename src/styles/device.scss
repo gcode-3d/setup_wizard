@@ -1,6 +1,9 @@
 .deviceContainer.columns:not(:last-child) {
   margin-bottom: 4em;
 }
+.column:not(:last-child) {
+  margin-right: 0.75rem;
+}
 
 .deviceContainer ~ .button {
   margin-bottom: 2em;

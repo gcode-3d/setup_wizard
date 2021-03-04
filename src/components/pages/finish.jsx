@@ -7,9 +7,11 @@ export default function FinishPage(props) {
   useEffect(() => {
     setLoading(true);
     var raw = JSON.stringify(props.data);
-
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
     var requestOptions = {
       method: "POST",
+      headers,
       body: raw,
     };
 
@@ -17,13 +19,14 @@ export default function FinishPage(props) {
       .then((response) => {
         if (response.ok) {
           setLoading(false);
+          props.cb();
         } else {
           setError(true);
           props.reportError();
         }
       })
       .catch((error) => {
-        console.log("error", error);
+        console.error(error);
         setError(true);
         props.reportError();
       });
@@ -53,6 +56,9 @@ export default function FinishPage(props) {
       <button
         className={"button " + (loading ? "is-warning" : "is-success")}
         disabled={loading}
+        onClick={() => {
+          window.location.reload();
+        }}
       >
         {loading ? "Still setting up" : "Ready! Click here to reload"}{" "}
       </button>

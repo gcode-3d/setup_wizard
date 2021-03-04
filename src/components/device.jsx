@@ -5,7 +5,7 @@ export default function Device({ device, cb }) {
   console.log(device);
 
   return (
-    <div className="deviceBox column is-half">
+    <div className="deviceBox column is-one-third">
       <div className="icon">
         <FontAwesomeIcon size="lg" icon={faUsb} rotation={270} />
       </div>
