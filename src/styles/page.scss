@@ -5,7 +5,10 @@
   margin: auto;
   padding: 1.5em;
   margin-top: 10em;
-  overflow-y: auto;
+}
+
+.page button {
+  margin-bottom: 2em;
 }
 
 input.input,
@@ -14,5 +17,9 @@ input.input,
 }
 
 .field {
-  margin-top: 2em;
+  margin-top: 5em;
+}
+
+.pageContainer {
+  overflow-y: auto;
 }
